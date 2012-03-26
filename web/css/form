@@ -1,0 +1,8 @@
+
+
+
+#table1 {border:5; border-collapse:collapse; border-spacing:12; font-size:large;}
+
+a {border: #ffffff; color: #ff6347; }
+
+#header {background-image: url("../images/article1.jpg")}

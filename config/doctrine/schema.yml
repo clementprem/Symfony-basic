@@ -1,0 +1,47 @@
+Article:
+  actAs: [Sluggable, Timestampable]
+  columns:
+    title:
+      type: string(255)
+      notnull: true
+    content:
+      type: clob
+    status: string(255)
+    author_id: integer
+    category_id: integer
+    published_at: timestamp
+    file: string(255)
+  relations:
+    Author:
+      foreignAlias: Articles
+    Category:
+      foreignAlias: Articles
+    Tags:
+      class: Tag
+      refClass: ArticleTag
+      foreignAlias: Articles
+Author:
+  columns:
+    first_name: string(20)
+    last_name: string(20)
+    email: string(255)
+    active: boolean
+Category:
+  columns:
+    name: string(255)
+Tag:
+  columns:
+    name: string(255)
+ArticleTag:
+  columns:
+    article_id:
+      type: integer
+      primary: true
+    tag_id:
+      type: integer
+      primary: true
+  relations:
+    Article:
+      onDelete: CASCADE
+    Tag:
+      onDelete: CASCADE
